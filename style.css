@@ -1,0 +1,41 @@
+
+body {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sofia';font-size: 300%;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-item {    
+    margin: 1em;
+    align-self: center;
+    margin-top: auto;
+  }
+
+
+.img-center {
+    width: 90px ;
+    height: auto;
+}
+
+#scisorsBox {
+    margin-top: 0.3em;
+}
+
+.flex-item:hover {
+    
+        transform: scale(1.15);
+}
+
+
+.playing {
+    transform: scale(1.1);
+    
+    box-shadow: 0 0 1rem #313131;
+  }

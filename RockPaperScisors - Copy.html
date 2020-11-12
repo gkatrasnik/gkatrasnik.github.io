@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scisors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+ <script>
+
+    // Your JavaScript goes here!
+
+    //global variables 
+    var playerPick = "";
+    var finalCompPick = "";
+
+    function computerPlay() {
+     // random computer pick
+      const compPick = ["rock", "paper", "scisors"];
+
+      const random = Math.floor(Math.random() * compPick.length);
+      finalCompPick = (compPick[random]);
+      return finalCompPick;
+    }
+
+    // player inputs pick, returns lowercase player pick
+    function playerSelection() {      
+
+      while (true) {        
+        playerPick = prompt("Chose your weapon: Rock, Paper or Scisors");
+        playerPick = playerPick.toLowerCase();
+        if (playerPick ==="rock" || playerPick ==="paper" || playerPick ==="scisors") {
+          break;
+        }
+      }
+      return(playerPick);
+    }
+
+    // Plays a round - compares computerPlay vs playerSelection. returns winner. 
+    function playRound() {
+      ps = playerSelection();
+      cp = computerPlay();       
+
+      if (ps=="rock" && cp=="scisors") {
+        winner ="Player";
+        
+      } else if (ps=="paper" && cp=="scisors") {
+          winner ="Computer";
+          
+      } else if (ps=="paper" && cp=="rock") {
+          winner ="Player";
+          
+      } else if (ps=="scisors" && cp=="rock") {
+          winner ="Computer";
+          
+      } else if (ps=="rock" && cp=="paper") {
+          winner ="Computer";
+          
+      } else if (ps=="scisors" && cp=="paper") {
+          winner ="Player";
+          
+      } else {
+          winner ="Nobody"
+      }
+      return winner;
+      
+    }  
+
+    function game() {
+
+      let playerScore = 0;
+      let computerScore = 0;
+     
+      for (gameCount =0; gameCount<5; gameCount++) {
+        playRound();
+        if (winner==="Player") {
+          playerScore++;
+        } else if (winner==="Computer") {
+          computerScore++;
+        } 
+        console.log(playerPick + " : " + finalCompPick + " | "+ winner + " wins this round");
+        console.log("Player " + playerScore + " : " + computerScore + " Computer");
+      }
+
+    
+      if (playerScore>computerScore) {
+        return("Player wins " + playerScore + " : " + computerScore);
+      } else if (playerScore<computerScore) {
+        return("Computer wins " + playerScore + " : " + computerScore);
+      } else {
+        return("It's a tie! " + playerScore + " : " + computerScore);
+      }
+
+      // reset scores, useful when playing in console.
+      playerScore = 0;
+      computerScore = 0;
+    
+
+    }
+
+  </script>
+</body>
+</html>
